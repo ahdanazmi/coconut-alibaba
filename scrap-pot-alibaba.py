@@ -5,7 +5,7 @@ import json
 from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument("--headless")# this is to make the chrome tab will not pop up. the scrapping run in background
-number_page= 21 # jumlah page dari pagination yg tersedia
+number_page= 21 # number of page from pagination
 output=[]
 
 for i in range (number_page):
@@ -14,18 +14,19 @@ for i in range (number_page):
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
-    time.sleep(10) # butuh jeda om, laptopnya ngadat
+    time.sleep(10) # wait 10 sec for my browser completely load he page . you can change the number
 
-    #untuk scroll dan menload item di javascript
+    #to scroll and load items in javascript
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-    time.sleep(60) # butuh jeda om, laptop sama internetnya lelet
+    time.sleep(60) 
 
-    #ngumpulin data
+    #collecting data
 
     items = driver.find_elements_by_css_selector(".J-offer-wrapper")
-
+       
+    
     for j in items:
-        try:
+        try:        #use try-except so the program will not stop if didnt find the expected element
             product_name = j.find_element_by_css_selector("h2").text
         except:
             product_name = None
@@ -69,4 +70,4 @@ for i in range (number_page):
     
     driver.close()
 
-json.dump(output,open("pot.json","w"), indent=2)
+json.dump(output,open("pot.json","w"), indent=2) #name your file in .json
