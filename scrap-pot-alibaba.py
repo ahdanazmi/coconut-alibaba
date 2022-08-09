@@ -14,7 +14,7 @@ for i in range (number_page):
 
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(url)
-    time.sleep(10) # wait 10 sec for my browser completely load he page . you can change the number
+    time.sleep(10) # wait 10 sec for my browser completely load the page . you can change the number
 
     #to scroll and load items in javascript
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
