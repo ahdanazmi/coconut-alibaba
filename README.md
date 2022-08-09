@@ -1,7 +1,7 @@
 # coconut-alibaba
 Scrapping coconut derivatives product Alibaba
 
-This scrapping using Selenium and Chrome webdriver. you need to install them first.
+This scrapping using Selenium and Chrome webdriver.
 Data will extracted in .json
 
 You should input these things manually:
